@@ -1,0 +1,26 @@
+{% extends 'root.html' %}
+
+{% block title %}Forex Converter{% endblock %}
+
+{% block content %}
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6 m-3 py-3">
+                <div class="card d-flex text-center border-success">
+                    <div class="card-header bg-light">Results</div>
+                    <div class="card-body">
+                        <h3 class="card-title text-success"><i>Successful!</i></div>
+                        <p class="card-text">
+                            The result is {{ sym }}{{ conv }}.
+                        </p>
+                        <a href="/" class="btn btn-outline-success">Back to Home</a>
+                    </div>
+                </div>
+            <div class="col-3"></div>
+            </div>
+            
+        </div>
+    </div>

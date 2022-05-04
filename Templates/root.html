@@ -1,0 +1,102 @@
+
+!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %} Forex Converter{% endblock %}</title>
+  <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap/dist/css/bootstrap.css"></link>
+  <link rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"></link>
+</head>
+
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
+        <a class="navbar-brand text-light" href="#"><i><b>FOREX</b></i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" 
+                data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" 
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            </div>
+        </div>
+    </nav>
+  
+  <div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6 card bg-light border-primary m-2 d-flex justify-content-center">
+            
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class=flashes>
+                        {% for message in messages %}
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>{{ message }}</strong>
+                    </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <div class="card-body text-center">
+                <h4 class="card-header m-1"><i>FOREX CONVERTER</i></h5>
+                <form action="/results" method="POST">
+                    <div class="input-group m-3 d-flex justify-content-center">
+                        <label for="init" class=" m-2">Former</label>
+                        <input id="init" name="init" placeholder="current currency" type="text"></input>
+                    </div>
+                    
+                    <div class="input-group m-3 d-flex justify-content-center">
+                        <label for="final" class=" m-2">Current</label>
+                        <input id="final" name="final" placeholder="desired currency" type="text"></input>
+                    </div>
+
+                    <div class="input-group m-3 d-flex justify-content-center">
+                        <div class="input-group-prepend">
+                            <label for="amount" class=" m-1">Value </label>
+                            <span class="input-group-text"> ~ </span>
+                        </div>
+                        <input type="text" name="amount" id="amount" placeholder="200.00"
+                        aria-label="Amount (to the nearest dollar)">
+                    </div>
+
+                    <button type="submit" class="btn btn-outline-primary">Submit</button>
+                </form>
+            </div>
+        
+        </div>
+        <div class="col-3"></div>
+    </div>
+
+
+
+  </div>
+  {% block content %}{% endblock %}
+
+</body>
+
+<script src="http://unpkg.com/jquery"></script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
